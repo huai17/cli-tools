@@ -25,7 +25,7 @@ export const buildListCommand = () =>
     .version("v0.0.1", "-v, --version")
     .description("list files with patterns.")
     .option("-f, --file", "list only files.")
-    .argument("[patterns...]", "glob patterns", "*")
+    .argument("[patterns...]", "glob patterns", ["*"])
     .action(async (patterns: string[], opts) => {
       const list = opts.file ? listFile : listAll;
       const files = await list(patterns);
